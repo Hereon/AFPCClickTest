@@ -66,7 +66,7 @@
       z-index: -2;
       background-image:
         linear-gradient(90deg, rgba(8, 11, 14, 0.95) 0%, rgba(8, 11, 14, 0.74) 31%, rgba(8, 11, 14, 0.18) 64%, rgba(8, 11, 14, 0.5) 100%),
-        url("https://tpc.googlesyndication.com/simgad/17346786483584058939");
+        url("assets/foundation-hero.png");
       background-position: center;
       background-size: cover;
     }
@@ -499,6 +499,15 @@
         return "";
       }
 
+      function hasQueryParams() {
+        var searchParams = new URLSearchParams(window.location.search);
+        return Array.from(searchParams.keys()).length > 0;
+      }
+
+      function truncateValue(value, maxLength) {
+        return String(value || "").slice(0, maxLength);
+      }
+
       function getCookie(name) {
         var target = name + "=";
         var parts = document.cookie ? document.cookie.split(";") : [];
@@ -618,10 +627,21 @@
       }
 
       function buildAppsFlyerUrl(deviceParams) {
+        var mediaSource = getQueryParam("ms");
+        var campaignId = getQueryParam("utm_campaign");
+        var campaign = firstQueryParam(["cp", "ap"]);
+
+        if (!hasQueryParams() || !mediaSource || !campaignId) {
+          var fallbackUrl = window.location.href;
+          mediaSource = "landing_page";
+          campaignId = truncateValue(fallbackUrl, 64);
+          campaign = truncateValue(fallbackUrl, 256);
+        }
+
         return appendParams(APPSFLYER_ENDPOINT, {
-          af_media_source: getQueryParam("ms"),
-          af_campaign_id: firstQueryParam(["utm_campaign", "campaign_id"]),
-          af_campaign: firstQueryParam(["cp", "ap"]),
+          af_media_source: mediaSource,
+          af_campaign_id: campaignId,
+          af_campaign: campaign,
           af_adset_id: firstQueryParam(["utm_medium", "adgroup_id"]),
           af_adset: getQueryParam("ag"),
           af_ad_id: getQueryParam("ad_id"),
