@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Foundation - PC Download</title>
+  <meta name="description" content="Download Foundation for Windows PC.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f5f1e8;
+      --muted: #c7c0b2;
+      --line: rgba(255, 255, 255, 0.16);
+      --panel: rgba(11, 16, 20, 0.72);
+      --panel-strong: rgba(11, 16, 20, 0.88);
+      --accent: #e9a847;
+      --accent-2: #39b4a6;
+      --danger: #cf5757;
+      --bg: #080b0e;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-width: 320px;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(8, 11, 14, 0.08) 0%, rgba(8, 11, 14, 0.72) 62%, #080b0e 100%),
+        #080b0e;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 88vh;
+      display: grid;
+      align-items: center;
+      padding: 24px;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-image:
+        linear-gradient(90deg, rgba(8, 11, 14, 0.95) 0%, rgba(8, 11, 14, 0.74) 31%, rgba(8, 11, 14, 0.18) 64%, rgba(8, 11, 14, 0.5) 100%),
+        url("assets/foundation-hero.png");
+      background-position: center;
+      background-size: cover;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 28vh;
+      z-index: -1;
+      background: linear-gradient(180deg, rgba(8, 11, 14, 0), #080b0e);
+    }
+
+    .nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      width: min(100%, calc(var(--max) + 48px));
+      margin: 0 auto;
+      padding: 22px 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(233, 168, 71, 0.62);
+      background: rgba(11, 16, 20, 0.64);
+      transform: rotate(45deg);
+    }
+
+    .brand-mark span {
+      width: 14px;
+      height: 14px;
+      background: var(--accent);
+      display: block;
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .nav-download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 16px;
+      border: 1px solid rgba(233, 168, 71, 0.72);
+      background: rgba(233, 168, 71, 0.12);
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .hero-inner {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding-top: 70px;
+    }
+
+    .hero-copy {
+      width: min(650px, 100%);
+    }
+
+    .kicker {
+      margin: 0 0 18px;
+      color: var(--accent-2);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 11ch;
+      font-size: clamp(56px, 10vw, 126px);
+      line-height: 0.88;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .lead {
+      max-width: 540px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 22px);
+      line-height: 1.55;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .download-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 230px;
+      min-height: 58px;
+      padding: 0 28px;
+      color: #15100a;
+      background: linear-gradient(180deg, #f0bd65 0%, #d99129 100%);
+      border: 1px solid rgba(255, 235, 190, 0.58);
+      box-shadow: 0 18px 44px rgba(233, 168, 71, 0.22);
+      font-size: 17px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .download-button:hover,
+    .download-button:focus-visible {
+      filter: brightness(1.08);
+      outline: 2px solid rgba(57, 180, 166, 0.72);
+      outline-offset: 3px;
+    }
+
+    .file-note {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      max-width: 620px;
+      margin-top: 58px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .stat {
+      min-height: 86px;
+      padding: 18px;
+      background: rgba(8, 11, 14, 0.72);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--ink);
+      font-size: 21px;
+      line-height: 1.1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .section {
+      padding: 64px 24px 76px;
+      background:
+        radial-gradient(circle at 16% 10%, rgba(57, 180, 166, 0.11), transparent 29%),
+        linear-gradient(180deg, #080b0e 0%, #101316 100%);
+    }
+
+    .section-inner {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+    }
+
+    .section-title {
+      margin: 0 0 28px;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .feature {
+      min-height: 210px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .feature h2 {
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .feature p {
+      margin: 16px 0 0;
+      color: var(--muted);
+      line-height: 1.58;
+      font-size: 15px;
+    }
+
+    .requirements {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      margin-top: 46px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .requirements > div {
+      padding: 24px;
+      background: var(--panel-strong);
+    }
+
+    .requirements h2 {
+      margin: 0 0 18px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+
+    .requirements dl {
+      margin: 0;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 12px 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.42;
+    }
+
+    .requirements dt {
+      color: #ffffff;
+      font-weight: 750;
+    }
+
+    .requirements dd {
+      margin: 0;
+    }
+
+    .footer {
+      padding: 24px;
+      background: #101316;
+      border-top: 1px solid var(--line);
+      color: rgba(245, 241, 232, 0.62);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        min-height: 92vh;
+        padding: 20px;
+      }
+
+      .nav {
+        padding: 18px 20px;
+      }
+
+      .nav-download {
+        display: none;
+      }
+
+      h1 {
+        font-size: clamp(52px, 18vw, 78px);
+      }
+
+      .lead {
+        font-size: 17px;
+      }
+
+      .download-button {
+        width: 100%;
+      }
+
+      .stats,
+      .feature-grid,
+      .requirements {
+        grid-template-columns: 1fr;
+      }
+
+      .requirements dl {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-label="Foundation PC download">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="#" aria-label="Foundation">
+          <span class="brand-mark" aria-hidden="true"><span></span></span>
+          <span class="brand-name">Foundation</span>
+        </a>
+        <a class="nav-download js-download" href="#">Download</a>
+      </nav>
+
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="kicker">Windows PC launcher</p>
+          <h1>Foundation</h1>
+          <p class="lead">Build the first stronghold on a hostile frontier, expand your command network, and bring a new world online from the ground up.</p>
+          <div class="actions">
+            <a class="download-button js-download" href="#">Download for PC</a>
+            <span class="file-note">Foundation.PC.V1.0.exe<br>Windows 10/11 64-bit</span>
+          </div>
+          <div class="stats" aria-label="Game highlights">
+            <div class="stat">
+              <strong>Base Ops</strong>
+              <span>Plan structures, routes, and power lines across a live frontier.</span>
+            </div>
+            <div class="stat">
+              <strong>PC Native</strong>
+              <span>Launcher build prepared for Windows desktop installs.</span>
+            </div>
+            <div class="stat">
+              <strong>Fast Start</strong>
+              <span>One installer, tracked attribution, ready for campaign traffic.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Game details">
+      <div class="section-inner">
+        <h2 class="section-title">Lead the first wave.</h2>
+        <div class="feature-grid">
+          <article class="feature">
+            <h2>Shape the Terrain</h2>
+            <p>Turn raw ground into a working settlement with production lanes, defensive routes, and evolving infrastructure.</p>
+          </article>
+          <article class="feature">
+            <h2>Command the Build</h2>
+            <p>Coordinate upgrades, resources, and expansion timing while the world pushes back against every shortcut.</p>
+          </article>
+          <article class="feature">
+            <h2>Claim the Horizon</h2>
+            <p>Scale from a foothold to a regional command hub as new sectors unlock and strategic pressure rises.</p>
+          </article>
+        </div>
+
+        <div class="requirements">
+          <div>
+            <h2>Minimum</h2>
+            <dl>
+              <dt>OS</dt>
+              <dd>Windows 10 64-bit</dd>
+              <dt>CPU</dt>
+              <dd>Intel Core i5 or equivalent</dd>
+              <dt>Memory</dt>
+              <dd>8 GB RAM</dd>
+              <dt>Storage</dt>
+              <dd>10 GB available space</dd>
+            </dl>
+          </div>
+          <div>
+            <h2>Recommended</h2>
+            <dl>
+              <dt>OS</dt>
+              <dd>Windows 11 64-bit</dd>
+              <dt>CPU</dt>
+              <dd>Intel Core i7 or equivalent</dd>
+              <dt>Memory</dt>
+              <dd>16 GB RAM</dd>
+              <dt>Graphics</dt>
+              <dd>Dedicated GPU with 4 GB VRAM</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Foundation PC</span>
+      <span>Campaign-ready landing page</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var APPSFLYER_ENDPOINT = "https://engagements.appsflyer.com/v1.0/c2s/click/app/nativepc/pc260730";
+      var DOWNLOAD_BASE = "https://userplatform-download.akamaized.net/official-website/pc-launcher-setup/Foundation.PC.V1.0.exe";
+      var COOKIE_NAME = "clickcode";
+      var COOKIE_DAYS = 30;
+      var CLICKCODE_LENGTH = 10;
+
+      function getQueryParam(name) {
+        return new URLSearchParams(window.location.search).get(name) || "";
+      }
+
+      function firstQueryParam(names) {
+        for (var i = 0; i < names.length; i += 1) {
+          var value = getQueryParam(names[i]);
+          if (value) return value;
+        }
+        return "";
+      }
+
+      function getCookie(name) {
+        var target = name + "=";
+        var parts = document.cookie ? document.cookie.split(";") : [];
+        for (var i = 0; i < parts.length; i += 1) {
+          var part = parts[i].trim();
+          if (part.indexOf(target) === 0) {
+            return decodeURIComponent(part.slice(target.length));
+          }
+        }
+        return "";
+      }
+
+      function setCookie(name, value, days) {
+        var expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
+        document.cookie = [
+          name + "=" + encodeURIComponent(value),
+          "expires=" + expires,
+          "path=/",
+          "SameSite=Lax"
+        ].join("; ");
+      }
+
+      function createClickCode(length) {
+        var alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
+        var bytes = new Uint8Array(length);
+        var output = "";
+
+        if (window.crypto && window.crypto.getRandomValues) {
+          window.crypto.getRandomValues(bytes);
+          for (var i = 0; i < bytes.length; i += 1) {
+            output += alphabet[bytes[i] % alphabet.length];
+          }
+          return output;
+        }
+
+        for (var j = 0; j < length; j += 1) {
+          output += alphabet[Math.floor(Math.random() * alphabet.length)];
+        }
+        return output;
+      }
+
+      function getOrCreateClickCode() {
+        var existing = getCookie(COOKIE_NAME);
+        if (existing) return existing;
+
+        var created = createClickCode(CLICKCODE_LENGTH);
+        setCookie(COOKIE_NAME, created, COOKIE_DAYS);
+        return created;
+      }
+
+      function appendParams(url, params) {
+        var result = new URL(url);
+        Object.keys(params).forEach(function (key) {
+          var value = params[key];
+          if (value !== undefined && value !== null && value !== "") {
+            result.searchParams.set(key, value);
+          }
+        });
+        return result.toString();
+      }
+
+      function buildAppsFlyerUrl() {
+        return appendParams(APPSFLYER_ENDPOINT, {
+          af_media_source: getQueryParam("ms"),
+          af_campaign_id: firstQueryParam(["utm_campaign", "campaign_id"]),
+          af_campaign: firstQueryParam(["cp", "ap"]),
+          af_adset_id: firstQueryParam(["utm_medium", "adgroup_id"]),
+          af_adset: getQueryParam("ag"),
+          af_ad_id: getQueryParam("ad_id"),
+          af_ad: getQueryParam("ad"),
+          af_click_id: firstQueryParam(["gclid", "fbclid", "transaction_id", "click_id"]),
+          af_lookback_window: "7"
+        });
+      }
+
+      function reportAppsFlyerClick() {
+        var clickUrl = buildAppsFlyerUrl();
+
+        if (window.fetch) {
+          fetch(clickUrl, {
+            method: "GET",
+            mode: "no-cors",
+            keepalive: true,
+            cache: "no-store"
+          }).catch(function () {
+            new Image().src = clickUrl;
+          });
+        } else {
+          new Image().src = clickUrl;
+        }
+
+        window.foundationAttribution = {
+          clickcode: clickCode,
+          appsFlyerClickUrl: clickUrl,
+          downloadUrl: downloadUrl
+        };
+        console.info("[Foundation] AppsFlyer click URL:", clickUrl);
+      }
+
+      var clickCode = getOrCreateClickCode();
+      var downloadUrl = appendParams(DOWNLOAD_BASE, { clickcode: clickCode });
+      var downloadLinks = document.querySelectorAll(".js-download");
+
+      downloadLinks.forEach(function (link) {
+        link.href = downloadUrl;
+        link.addEventListener("click", function () {
+          link.href = appendParams(DOWNLOAD_BASE, { clickcode: getOrCreateClickCode() });
+        });
+      });
+
+      reportAppsFlyerClick();
+    }());
+  </script>
+</body>
+</html>
