@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Foundation - PC Download</title>
-  <meta name="description" content="Download Foundation for Windows PC.">
+  <title>Aniimo - PC Download</title>
+  <meta name="description" content="Download Aniimo for Windows PC.">
   <style>
     :root {
       color-scheme: dark;
@@ -66,7 +66,7 @@
       z-index: -2;
       background-image:
         linear-gradient(90deg, rgba(8, 11, 14, 0.95) 0%, rgba(8, 11, 14, 0.74) 31%, rgba(8, 11, 14, 0.18) 64%, rgba(8, 11, 14, 0.5) 100%),
-        url("assets/foundation-hero.png");
+        url("https://worldx-website-cdn.aniimo.com/official-website/worldx/office_global/image_6_cb033aa2330d7966.jpg");
       background-position: center;
       background-size: cover;
     }
@@ -386,11 +386,11 @@
 </head>
 <body>
   <main class="page">
-    <section class="hero" aria-label="Foundation PC download">
+    <section class="hero" aria-label="Aniimo PC download">
       <nav class="nav" aria-label="Primary">
-        <a class="brand" href="#" aria-label="Foundation">
+        <a class="brand" href="#" aria-label="Aniimo">
           <span class="brand-mark" aria-hidden="true"><span></span></span>
-          <span class="brand-name">Foundation</span>
+          <span class="brand-name">Aniimo</span>
         </a>
         <a class="nav-download js-download" href="#">Download</a>
       </nav>
@@ -398,11 +398,11 @@
       <div class="hero-inner">
         <div class="hero-copy">
           <p class="kicker">Windows PC launcher</p>
-          <h1>Foundation</h1>
+          <h1>Aniimo</h1>
           <p class="lead">Build the first stronghold on a hostile frontier, expand your command network, and bring a new world online from the ground up.</p>
           <div class="actions">
             <a class="download-button js-download" href="#">Download for PC</a>
-            <span class="file-note">Foundation.PC.V1.0.exe<br>Windows 10/11 64-bit</span>
+            <span class="file-note">Aniimo.PC.V1.0.exe<br>Windows 10/11 64-bit</span>
           </div>
           <div class="stats" aria-label="Game highlights">
             <div class="stat">
@@ -474,7 +474,7 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <span>Foundation PC</span>
+      <span>Aniimo PC</span>
       <span>Campaign-ready landing page</span>
     </div>
   </footer>
@@ -482,7 +482,7 @@
   <script>
     (function () {
       var APPSFLYER_ENDPOINT = "https://engagements.appsflyer.com/v1.0/c2s/click/app/nativepc/pc260730";
-      var DOWNLOAD_BASE = "https://userplatform-download.akamaized.net/official-website/pc-launcher-setup/Foundation.PC.V1.0.exe";
+      var DOWNLOAD_BASE = "https://userplatform-download.akamaized.net/official-website/pc-launcher-setup/Aniimo.PC.V1.0.exe";
       var COOKIE_NAME = "clickcode";
       var COOKIE_DAYS = 30;
       var CLICKCODE_LENGTH = 10;
@@ -629,7 +629,7 @@
       function buildAppsFlyerUrl(deviceParams) {
         var mediaSource = getQueryParam("ms");
         var campaignId = getQueryParam("utm_campaign");
-        var campaign = firstQueryParam(["cp", "ap"]);
+        var campaign = firstQueryParam(["cp", "campaign"]);
 
         if (!hasQueryParams() || !mediaSource || !campaignId) {
           var fallbackUrl = window.location.href;
@@ -676,7 +676,7 @@
             appsFlyerClickUrl: clickUrl,
             downloadUrl: downloadUrl
           };
-          console.info("[Foundation] AppsFlyer click URL:", clickUrl);
+          console.info("[Aniimo] AppsFlyer click URL:", clickUrl);
         });
       }
 
